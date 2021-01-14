@@ -1,0 +1,36 @@
+{% extends 'polls/layout.html'%}
+
+{% block title %}
+    Главная страница
+{% endblock %}
+
+{% block content %}
+{% for model in models %}
+    <div class="box2 my-3 p-2 bg-white rounded box-shadow ">
+        <img class="img" src="{{MEDIA_URL}}{{model.img}}" alt="Тут должна быть буква N">
+        <div class="mtext d-flex justify-content-center display-4">{{model.modelname}}</div>
+    <table>
+  <tbody>
+    <tr>
+      <th scope="row">Разгон до 100:</th>
+      <td>{{model.time}}с</td>
+    </tr>
+    <tr>
+      <th scope="row">Двигатель:</th>
+      <td>V{{model.num}} объемом {{model.volume}} литра</td>
+    </tr>
+  <tr>
+      <th scope="row">Мощностью:</th>
+      <td>{{model.power}} л.с</td>
+    </tr>
+  <tr>
+      <th scope="row">Цена:</th>
+      <td>{{model.price}} $</td>
+    </tr>
+  </tbody>
+    </table>
+        <p class="desk">{{model.deskription}}</p>
+</div>
+{% endfor %}
+
+{% endblock %}

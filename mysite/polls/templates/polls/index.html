@@ -1,0 +1,33 @@
+{% extends 'polls/layout.html'%}
+
+{% block title %}
+    Главная страница
+{% endblock %}
+
+{% block content %}
+
+<div class="position-relative overflow-hidden p-1 p-md-2 m-md-1 text-center bg-light">
+      <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 font-weight-normal">Спорткары</h1>
+        <p class="lead font-weight-normal">Найдете интересные и уникальные автомобили, ознакомитесь с невероятными техническими характеристиками автомобилей и узнаете о истории их создания.</p>
+        <a class="btn btn-outline-secondary" href="#">Вперед</a>
+      </div>
+      <div class="product-device box-shadow d-none d-md-block"></div>
+      <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+    </div>
+
+<div class="box1 my-3 p-2 bg-white rounded box-shadow ">
+<div class="containe">
+    <div class="row d-flex justify-content-center ">
+{% for mark in mark %}
+    <div class="models">
+        <a class="ref" href="{% url 'model' %}?id={{ mark.id }}">
+            <img class="img1" src="{{MEDIA_URL}}{{mark.img}}" alt="Тут должна быть буква N">
+            <div class="text">{{mark.Markname}}</div>
+        </a>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+    </div>
+{% endblock %}
